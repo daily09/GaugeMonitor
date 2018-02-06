@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "815407876572",
+    "firebase_url": "https://gaugemonitor-a8b87.firebaseio.com",
+    "project_id": "gaugemonitor-a8b87",
+    "storage_bucket": "gaugemonitor-a8b87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815407876572:android:0c5baa4ea339352f",
+        "android_client_info": {
+          "package_name": "com.example.owner.gaugemonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815407876572-c9ibfv79t0lmum640lhoonog79nbc24a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl1AqKEbufoQQ1Y9o-YTHEkWtOy4Cxxn0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

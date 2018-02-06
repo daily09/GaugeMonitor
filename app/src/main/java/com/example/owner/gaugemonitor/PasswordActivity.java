@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,6 +18,7 @@ public class PasswordActivity extends AppCompatActivity {
 
     private EditText passwordEmail;
     private Button resetPassword;
+    private TextView userLogin;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -26,6 +28,7 @@ public class PasswordActivity extends AppCompatActivity {
 
         passwordEmail = (EditText)findViewById(R.id.etPasswordEmail);
         resetPassword = (Button)findViewById(R.id.btnPasswordReset);
+        userLogin = (TextView)findViewById(R.id.tvPasswordGoBack);
         firebaseAuth = FirebaseAuth.getInstance();
 
         resetPassword.setOnClickListener(new View.OnClickListener() {
@@ -35,20 +38,27 @@ public class PasswordActivity extends AppCompatActivity {
 
                 if(useremail.equals("")){
                     Toast.makeText(PasswordActivity.this, "Please enter your registered email ID", Toast.LENGTH_SHORT).show();
-                }else{
+                }else {
                     firebaseAuth.sendPasswordResetEmail(useremail).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 Toast.makeText(PasswordActivity.this, "Password reset email sent!", Toast.LENGTH_SHORT).show();
                                 finish();
                                 startActivity(new Intent(PasswordActivity.this, MainActivity.class));
-                            }else{
+                            } else {
                                 Toast.makeText(PasswordActivity.this, "Email invalid", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
                 }
+            }
+        });
+
+        userLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PasswordActivity.this, MainActivity.class));
             }
         });
     }
