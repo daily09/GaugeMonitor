@@ -13,23 +13,54 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SecondActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private Button logout;
+    private Button userStartNew;
+    private Button userRerun;
+    private Button userViewLogs;
+    private Button userLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        setupUIViews();
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        logout = (Button)findViewById(R.id.btnLogOut);
+        userStartNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SecondActivity.this, StartNewActivity.class));
+            }
+        });
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        userRerun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SecondActivity.this, RunActivity.class));
+            }
+        });
+
+        userViewLogs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SecondActivity.this, LogActivity.class));
+            }
+        });
+
+        userLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Logout();
             }
         });
+
+    }
+
+    private void setupUIViews(){
+        userStartNew = (Button)findViewById(R.id.btnStartNew);
+        userRerun    = (Button)findViewById(R.id.btnRerun);
+        userViewLogs = (Button)findViewById(R.id.btnViewLogs);
+        userLogout = (Button)findViewById(R.id.btnLogOut);
     }
 
     private void Logout(){
